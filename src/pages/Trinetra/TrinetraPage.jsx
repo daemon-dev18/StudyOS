@@ -1,207 +1,126 @@
 import "./TrinetraPage.css";
 
-import { useRef, useState } from "react";
+import useCamera from "../../hooks/useCamera";
+import useSessionTimer from "../../hooks/useSessionTimer";
 
+function TrinetraPage() {
 
-function TrinetraPage(){
+  const {
+    videoRef,
+    cameraOn,
+    error,
+    startCamera,
+    stopCamera,
+  } = useCamera();
 
+  const {
+    running,
+    formattedTime,
+    startSession,
+    pauseSession,
+    resetSession,
+  } = useSessionTimer();
 
-const videoRef = useRef(null);
+  function handleStart() {
+    startCamera();
+    startSession();
+  }
 
-const [cameraOn,setCameraOn] = useState(false);
+  function handleStop() {
+    stopCamera();
+    resetSession();
+  }
 
+  function handlePause() {
+    pauseSession();
+  }
 
+  return (
+    <div className="trinetra-page">
 
-async function startCamera(){
+      <div className="trinetra-container">
 
+        <h1>👁️ TRINETRA</h1>
 
-try{
+        <p>AI Powered Smart Study Tracking</p>
 
+        <div className="camera-box">
 
-const stream = await navigator.mediaDevices.getUserMedia({
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            muted
+            className="camera-video"
+          />
 
-video:true
+          {!cameraOn && (
+            <div className="camera-placeholder">
+              Camera Off
+            </div>
+          )}
 
-});
+        </div>
 
+        <div className="tracking-status">
 
+          <h2>Study Session</h2>
 
-videoRef.current.srcObject = stream;
+          <h1>{formattedTime}</h1>
 
+          <p>
+            {running ? "🟢 Session Running" : "🔴 Session Stopped"}
+          </p>
 
-setCameraOn(true);
+          <p>
+            Camera : {cameraOn ? "🟢 ON" : "🔴 OFF"}
+          </p>
 
+          <p>
+            Focus Score : 100%
+          </p>
 
+          <p>
+            Distractions : 0
+          </p>
 
-}catch(error){
+        </div>
 
+        <div className="control-buttons">
 
-alert("Camera permission required");
+          {!cameraOn ? (
 
+            <button onClick={handleStart}>
+              Start Session
+            </button>
+
+          ) : (
+
+            <>
+              <button onClick={handlePause}>
+                Pause Timer
+              </button>
+
+              <button onClick={handleStop}>
+                Stop Session
+              </button>
+            </>
+
+          )}
+
+        </div>
+
+        {error && (
+          <p style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
+
+      </div>
+
+    </div>
+  );
 
 }
-
-
-
-}
-
-
-
-
-
-function stopCamera(){
-
-
-const stream = videoRef.current.srcObject;
-
-
-if(stream){
-
-
-stream.getTracks().forEach(track=>track.stop());
-
-
-}
-
-
-videoRef.current.srcObject=null;
-
-
-setCameraOn(false);
-
-
-}
-
-
-
-
-
-
-return (
-
-<div className="trinetra-page">
-
-
-<div className="trinetra-container">
-
-
-
-<h1>
-👁️ त्रिनेत्र Mode
-</h1>
-
-
-
-<p>
-Smart camera based focus tracking
-</p>
-
-
-
-
-<div className="camera-box">
-
-
-<video
-
-ref={videoRef}
-
-autoPlay
-
-playsInline
-
-className="camera-video"
-
-/>
-
-
-
-{
-!cameraOn &&
-
-<div className="camera-placeholder">
-
-Camera Off
-
-</div>
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-<div className="tracking-status">
-
-
-<h3>
-Status
-</h3>
-
-
-<p>
-
-{
-cameraOn
-?
-"🟢 Monitoring Focus"
-:
-"⚪ Camera Not Started"
-
-}
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-{
-
-cameraOn ?
-
-<button onClick={stopCamera}>
-
-Stop Camera
-
-</button>
-
-
-:
-
-<button onClick={startCamera}>
-
-Start Camera
-
-</button>
-
-
-}
-
-
-
-
-
-</div>
-
-
-</div>
-
-);
-
-
-}
-
 
 export default TrinetraPage;

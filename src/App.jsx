@@ -15,6 +15,7 @@ import AchievementsPage from "./pages/Achievements/AchievementsPage";
 import SettingsPage from "./pages/Settings/SettingsPage";
 import HistoryPage from "./pages/History/HistoryPage";
 import TrinetraPage from "./pages/Trinetra/TrinetraPage";
+import AIPlayground from "./pages/AIPlayground/AIPlayground";
 
 function App() {
 
@@ -71,7 +72,10 @@ element={<TrinetraPage />}
 
           <Route path="/settings" element={<SettingsPage />} />
 
-
+<Route
+  path="/ai-playground"
+  element={<AIPlayground />}
+/>
         </Routes>
 
 
