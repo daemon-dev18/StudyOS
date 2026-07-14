@@ -1,0 +1,73 @@
+.focus-page {
+
+  padding:40px;
+
+}
+
+
+
+.focus-page h1 {
+
+  font-size:36px;
+
+  margin-bottom:30px;
+
+}
+
+
+
+.timer-card {
+
+  background:#111827;
+
+  border:1px solid #374151;
+
+  border-radius:20px;
+
+  padding:50px;
+
+  text-align:center;
+
+}
+
+
+
+.timer-card h2 {
+
+  font-size:70px;
+
+  margin-bottom:30px;
+
+}
+
+
+
+.timer-buttons {
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:15px;
+
+}
+
+
+
+.timer-buttons button {
+
+  padding:14px 25px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#6366f1;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-weight:600;
+
+}

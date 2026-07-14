@@ -1,0 +1,107 @@
+.planner-page {
+
+  padding:40px;
+
+}
+
+
+
+.planner-card {
+
+  margin-top:30px;
+
+  background:#111827;
+
+  border:1px solid #374151;
+
+  padding:25px;
+
+  border-radius:18px;
+
+}
+
+
+
+.planner-input {
+
+  display:flex;
+
+  gap:12px;
+
+  margin-bottom:25px;
+
+}
+
+
+
+.planner-input input {
+
+  flex:1;
+
+  padding:14px;
+
+  background:#1f2937;
+
+  border:1px solid #374151;
+
+  color:white;
+
+  border-radius:12px;
+
+}
+
+
+
+.planner-input button {
+
+  padding:14px 25px;
+
+  background:#6366f1;
+
+  color:white;
+
+  border:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+}
+
+
+
+.plan-item {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:15px;
+
+  background:#1f2937;
+
+  border-radius:12px;
+
+  margin-bottom:12px;
+
+}
+
+
+
+.plan-item button {
+
+  background:none;
+
+  border:none;
+
+  cursor:pointer;
+
+}.completed-plan {
+
+  opacity:0.5;
+
+  text-decoration:line-through;
+
+}

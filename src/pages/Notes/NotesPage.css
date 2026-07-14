@@ -1,0 +1,120 @@
+.notes-page {
+
+  padding:40px;
+
+}
+
+
+
+.notes-card {
+
+  margin-top:30px;
+
+  background:#111827;
+
+  border:1px solid #374151;
+
+  padding:25px;
+
+  border-radius:18px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+
+}
+
+
+
+.notes-card input,
+.notes-card textarea {
+
+  padding:14px;
+
+  background:#1f2937;
+
+  border:1px solid #374151;
+
+  color:white;
+
+  border-radius:12px;
+
+}
+
+
+
+.notes-card textarea {
+
+  min-height:150px;
+
+}
+
+
+
+.notes-card button {
+
+  padding:14px;
+
+  background:#6366f1;
+
+  color:white;
+
+  border:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+}
+
+
+
+.notes-list {
+
+  margin-top:25px;
+
+  display:grid;
+
+  gap:15px;
+
+}
+
+
+
+.note-item {
+
+  background:#111827;
+
+  border:1px solid #374151;
+
+  padding:20px;
+
+  border-radius:16px;
+
+}
+
+
+
+.note-item p {
+
+  color:#d1d5db;
+
+  margin:15px 0;
+
+}
+
+
+
+.note-item button {
+
+  background:none;
+
+  border:none;
+
+  color:#fca5a5;
+
+  cursor:pointer;
+
+}

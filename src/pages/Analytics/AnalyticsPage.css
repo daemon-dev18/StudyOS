@@ -1,0 +1,60 @@
+.analytics-page {
+
+  padding:40px;
+
+}
+
+
+
+.analytics-grid {
+
+  margin-top:30px;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:20px;
+
+}
+
+
+
+.analytics-card {
+
+  background:#111827;
+
+  border:1px solid #374151;
+
+  padding:25px;
+
+  border-radius:18px;
+
+}
+
+
+
+.analytics-card h2 {
+
+  font-size:30px;
+
+}
+
+
+
+.analytics-card p {
+
+  color:#9ca3af;
+
+  margin:10px 0;
+
+}
+
+
+
+.analytics-card strong {
+
+  font-size:32px;
+
+}

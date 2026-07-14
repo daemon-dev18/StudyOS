@@ -1,0 +1,65 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+.stat-card,
+.focus-card,
+.task-item,
+.planner-card,
+.notes-card,
+.note-item,
+.analytics-card,
+.settings-card {
+
+
+  transition:0.3s;
+
+
+}
+
+
+.stat-card:hover,
+.focus-card:hover,
+.task-item:hover,
+.planner-card:hover,
+.notes-card:hover,
+.note-item:hover,
+.analytics-card:hover,
+.settings-card:hover {
+
+
+  transform:translateY(-5px);
+
+
+  border-color:#6366f1;
+
+
+}
+.content {
+
+  flex:1;
+
+  min-height:100vh;
+
+  background:#0d0d0d;
+
+}

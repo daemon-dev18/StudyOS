@@ -1,0 +1,59 @@
+.settings-page {
+
+  padding:40px;
+
+}
+
+
+
+.settings-card {
+
+  margin-top:30px;
+
+  background:#111827;
+
+  border:1px solid #374151;
+
+  padding:30px;
+
+  border-radius:18px;
+
+}
+
+
+
+.theme-buttons {
+
+  display:flex;
+
+  gap:15px;
+
+  margin-top:20px;
+
+}
+
+
+
+.theme-buttons button {
+
+  padding:14px 25px;
+
+  border:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  background:#374151;
+
+  color:white;
+
+}
+
+
+
+.theme-buttons .active {
+
+  background:#6366f1;
+
+}
