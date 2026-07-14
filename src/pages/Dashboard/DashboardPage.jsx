@@ -1,29 +1,31 @@
 import "./DashboardPage.css";
+
+import StatCard from "../../components/cards/StatCard";
+import GoalCard from "../../components/cards/GoalCard";
+import ScheduleCard from "../../components/cards/ScheduleCard";
+import QuickActions from "../../components/cards/QuickActions";
+import FocusChart from "../../components/cards/FocusChart";
+import StreakCard from "../../components/cards/StreakCard";
+
 import useTasks from "../../hooks/useTasks";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
+
 function DashboardPage() {
+
 
   const {
     total,
     completed,
-    pending,
-    progress,
+    progress
   } = useTasks();
 
 
-  const [focusMinutes] =
-    useLocalStorage(
-      "focusMinutes",
-      0
-    );
 
-
-  const [sessions] =
-    useLocalStorage(
-      "focusSessions",
-      0
-    );
+  const [focusMinutes] = useLocalStorage(
+    "focusMinutes",
+    0
+  );
 
 
 
@@ -32,118 +34,175 @@ function DashboardPage() {
     <div className="dashboard">
 
 
-      <div className="welcome">
+      <section className="hero">
 
         <h1>
-          Good Morning 👋
+          Good Evening 👋
         </h1>
 
+
         <p>
-          Let's make today productive.
+          Ready to conquer your goals today?
         </p>
 
-      </div>
+
+      </section>
 
 
 
-      <div className="stats">
 
 
-        <div className="stat-card">
-          <h2>📚</h2>
-          <p>Total Tasks</p>
-          <strong>{total}</strong>
-        </div>
+      <section className="mode-grid">
 
 
+        <div className="mode-card dhyan">
 
-        <div className="stat-card">
-          <h2>✅</h2>
-          <p>Completed</p>
-          <strong>{completed}</strong>
-        </div>
-
-
-
-        <div className="stat-card">
-          <h2>⏳</h2>
-          <p>Pending</p>
-          <strong>{pending}</strong>
-        </div>
-
-
-
-        <div className="stat-card">
-          <h2>🔥</h2>
-          <p>Progress</p>
-          <strong>{progress}%</strong>
-        </div>
-
-
-      </div>
-
-
-
-      <div className="stats">
-
-
-        <div className="stat-card">
 
           <h2>
-            🍅
+            🧘 ध्यान Mode
           </h2>
 
+
           <p>
-            Focus Minutes
+            Deep focus without distractions.
           </p>
 
-          <strong>
-            {focusMinutes}
-          </strong>
+
+          <button>
+            Start Session
+          </button>
+
 
         </div>
 
 
 
-        <div className="stat-card">
+
+
+        <div className="mode-card trinetra">
+
 
           <h2>
-            🎯
+            👁️ त्रिनेत्र Mode
           </h2>
 
+
           <p>
-            Sessions
+            Camera based focus tracking.
           </p>
 
-          <strong>
-            {sessions}
-          </strong>
+
+          <button>
+            Start Camera
+          </button>
+
 
         </div>
 
 
-      </div>
+      </section>
 
 
 
 
-      <div className="focus-card">
+
+
+
+      <section className="progress-card">
+
 
         <h2>
-          Today's Focus 🎯
+          Today's Progress
         </h2>
 
+
+
+        <div className="progress-bar">
+
+          <div
+            style={{
+              width: `${progress}%`
+            }}
+          ></div>
+
+
+        </div>
+
+
+
         <p>
-          Keep building consistency every day.
+          {progress}% completed
         </p>
 
-      </div>
+
+
+      </section>
+
+
+
+
+
+
+
+      <section className="stats-grid">
+
+
+
+        <StatCard
+
+          icon="📚"
+
+          title="Focus Time"
+
+          value={`${focusMinutes} min`}
+
+        />
+
+
+
+
+        <StatCard
+
+          icon="✅"
+
+          title="Tasks"
+
+          value={`${completed}/${total}`}
+
+        />
+
+
+
+      </section>
+
+
+
+
+
+      <StreakCard />
+
+
+
+      <GoalCard />
+
+
+
+      <ScheduleCard />
+
+
+
+      <QuickActions />
+
+
+
+      <FocusChart />
 
 
 
     </div>
 
   );
+
 
 }
 

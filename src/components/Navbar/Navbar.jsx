@@ -1,30 +1,49 @@
 import "./Navbar.css";
 
-function Navbar() {
 
-  return (
+function Navbar(){
 
-    <div className="navbar">
+  return(
 
-
-      <div className="brand">
-
-        🧠 StudyOS
-
-      </div>
+    <nav className="navbar">
 
 
+      <div className="navbar-left">
 
-      <div className="profile">
-
-        <span>
+        <h2>
           Welcome back 👋
-        </span>
+        </h2>
+
+        <p>
+          Ready to conquer your goals today?
+        </p>
 
       </div>
 
 
-    </div>
+
+      <div className="navbar-right">
+
+
+        <div className="streak">
+
+          🔥 7 Day Streak
+
+        </div>
+
+
+
+        <div className="profile">
+
+          K
+
+        </div>
+
+
+      </div>
+
+
+    </nav>
 
   );
 

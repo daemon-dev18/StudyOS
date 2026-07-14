@@ -1,6 +1,6 @@
 .navbar {
 
-  height:70px;
+  height:80px;
 
   display:flex;
 
@@ -10,19 +10,59 @@
 
   padding:0 35px;
 
-  background:#111827;
+  border-bottom:1px solid var(--border);
 
-  border-bottom:1px solid #1f2937;
+  background:rgba(8,11,22,0.7);
+
+  backdrop-filter:blur(12px);
 
 }
 
 
 
-.brand {
+.navbar-left h2 {
 
-  font-size:24px;
+  margin:0;
 
-  font-weight:700;
+  font-size:22px;
+
+}
+
+
+
+.navbar-left p {
+
+  margin:5px 0 0;
+
+  color:var(--text-secondary);
+
+  font-size:14px;
+
+}
+
+
+
+.navbar-right {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+}
+
+
+
+.streak {
+
+  padding:10px 16px;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid var(--border);
 
 }
 
@@ -30,8 +70,20 @@
 
 .profile {
 
-  color:#9ca3af;
+  height:42px;
 
-  font-size:15px;
+  width:42px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:var(--accent);
+
+  font-weight:700;
 
 }

@@ -13,32 +13,76 @@ import AnalyticsPage from "./pages/Analytics/AnalyticsPage";
 import FocusPage from "./pages/Focus/FocusPage";
 import AchievementsPage from "./pages/Achievements/AchievementsPage";
 import SettingsPage from "./pages/Settings/SettingsPage";
+import HistoryPage from "./pages/History/HistoryPage";
+import TrinetraPage from "./pages/Trinetra/TrinetraPage";
 
 function App() {
+
+
   return (
+
     <div className="app">
+
+
       <Sidebar />
 
+
       <div className="content">
+
+
         <Navbar />
 
+
         <Routes>
+
+
           <Route path="/" element={<DashboardPage />} />
+
+
           <Route path="/study" element={<StudyPage />} />
+
+
           <Route path="/planner" element={<PlannerPage />} />
+
+
           <Route path="/tasks" element={<TasksPage />} />
+
+
           <Route path="/notes" element={<NotesPage />} />
+
+
           <Route path="/analytics" element={<AnalyticsPage />} />
+
+
           <Route path="/focus" element={<FocusPage />} />
-          <Route
-            path="/achievements"
-            element={<AchievementsPage />}
+
+
+          <Route path="/history" element={<HistoryPage />} />
+
+<Route 
+path="/trinetra" 
+element={<TrinetraPage />} 
+/>
+          <Route 
+            path="/achievements" 
+            element={<AchievementsPage />} 
           />
+
+
           <Route path="/settings" element={<SettingsPage />} />
+
+
         </Routes>
+
+
       </div>
+
+
     </div>
+
   );
+
 }
+
 
 export default App;

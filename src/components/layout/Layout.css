@@ -1,0 +1,29 @@
+.app-layout {
+
+  display:flex;
+
+  min-height:100vh;
+
+  background:var(--bg-primary);
+
+}
+
+
+
+.main-area {
+
+  flex:1;
+
+  display:flex;
+
+  flex-direction:column;
+
+}
+
+
+
+.page-content {
+
+  padding:30px;
+
+}

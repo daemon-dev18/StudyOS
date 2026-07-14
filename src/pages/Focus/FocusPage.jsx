@@ -1,217 +1,290 @@
-import { useEffect, useState } from "react";
 import "./FocusPage.css";
+
+import { useState, useEffect } from "react";
+
 import useLocalStorage from "../../hooks/useLocalStorage";
+import useSessions from "../../hooks/useSessions";
 
-function FocusPage() {
 
-  const WORK_TIME = 25 * 60;
-  const BREAK_TIME = 5 * 60;
+function FocusPage(){
 
 
-  const [time, setTime] = useState(WORK_TIME);
+const [duration,setDuration] = useState(25);
 
-  const [running, setRunning] = useState(false);
+const [topic,setTopic] = useState("");
 
-  const [mode, setMode] = useState("Focus");
+const [seconds,setSeconds] = useState(25*60);
 
-  const [sessions, setSessions] = useLocalStorage(
-    "focusSessions",
-    0
-  );
+const [running,setRunning] = useState(false);
 
 
-  const [focusMinutes, setFocusMinutes] =
-    useLocalStorage(
-      "focusMinutes",
-      0
-    );
 
+const [focusMinutes,setFocusMinutes] =
+useLocalStorage(
+"focusMinutes",
+0
+);
 
 
-  useEffect(() => {
 
-    let timer;
+const { addSession } = useSessions();
 
 
-    if (running) {
 
-      timer = setInterval(() => {
 
 
-        setTime((prev) => {
+useEffect(()=>{
 
 
-          if (prev <= 1) {
+let timer;
 
 
-            if (mode === "Focus") {
+if(running){
 
-              setSessions(
-                sessions + 1
-              );
 
-              setFocusMinutes(
-                focusMinutes + 25
-              );
+timer=setInterval(()=>{
 
 
-              setMode("Break");
+setSeconds((prev)=>{
 
-              return BREAK_TIME;
 
-            }
+if(prev<=1){
 
 
-            else {
+setRunning(false);
 
-              setMode("Focus");
 
-              return WORK_TIME;
 
-            }
+setFocusMinutes(
+focusMinutes + duration
+);
 
 
-          }
 
+addSession({
 
-          return prev - 1;
+topic: topic || "Untitled Session",
 
+duration: duration,
 
-        });
+date: new Date().toLocaleString()
 
+});
 
-      },1000);
 
-    }
 
+return duration*60;
 
-    return () =>
-      clearInterval(timer);
-
-
-  }, [
-    running,
-    mode
-  ]);
-
-
-
-
-  function resetTimer(){
-
-    setRunning(false);
-
-    setMode("Focus");
-
-    setTime(WORK_TIME);
-
-  }
-
-
-
-
-  const minutes =
-    Math.floor(time / 60);
-
-
-  const seconds =
-    time % 60;
-
-
-
-
-  return (
-
-    <div className="focus-page">
-
-
-      <h1>
-        🍅 Focus Mode
-      </h1>
-
-
-      <div className="timer-card">
-
-
-        <h3>
-          {mode}
-        </h3>
-
-
-
-        <h2>
-
-          {minutes
-          .toString()
-          .padStart(2,"0")}
-
-          :
-
-          {seconds
-          .toString()
-          .padStart(2,"0")}
-
-        </h2>
-
-
-
-        <p>
-          Sessions:
-          {" "}
-          {sessions}
-        </p>
-
-
-
-        <p>
-          Focus Minutes:
-          {" "}
-          {focusMinutes}
-        </p>
-
-
-
-
-        <div className="timer-buttons">
-
-
-          <button
-            onClick={() =>
-              setRunning(true)
-            }
-          >
-            ▶ Start
-          </button>
-
-
-
-          <button
-            onClick={() =>
-              setRunning(false)
-            }
-          >
-            ⏸ Pause
-          </button>
-
-
-
-          <button
-            onClick={resetTimer}
-          >
-            🔄 Reset
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-  );
 
 }
+
+
+
+return prev-1;
+
+
+});
+
+
+},1000);
+
+
+
+}
+
+
+
+return ()=>clearInterval(timer);
+
+
+
+},[running]);
+
+
+
+
+
+
+
+function changeDuration(value){
+
+
+setDuration(value);
+
+setSeconds(value*60);
+
+
+}
+
+
+
+
+
+
+function formatTime(){
+
+
+const minutes=Math.floor(seconds/60);
+
+const secs=seconds%60;
+
+
+return `${minutes
+.toString()
+.padStart(2,"0")}:${secs
+.toString()
+.padStart(2,"0")}`;
+
+
+}
+
+
+
+
+
+return(
+
+
+<div className="focus-page">
+
+
+
+<div className="focus-container">
+
+
+
+<h1>
+🧘 ध्यान Mode
+</h1>
+
+
+
+<p>
+Deep focus. No distractions.
+</p>
+
+
+
+
+<input
+
+className="topic-input"
+
+placeholder="What are you studying?"
+
+value={topic}
+
+onChange={(e)=>setTopic(e.target.value)}
+
+/>
+
+
+
+
+
+<div className="duration-buttons">
+
+
+{
+[15,25,45,60].map((time)=>(
+
+<button
+
+key={time}
+
+onClick={()=>changeDuration(time)}
+
+>
+
+{time} min
+
+</button>
+
+
+))
+}
+
+
+</div>
+
+
+
+
+
+
+<div className="timer">
+
+{formatTime()}
+
+</div>
+
+
+
+
+
+<div className="focus-buttons">
+
+
+<button
+
+onClick={()=>setRunning(true)}
+
+>
+
+Start
+
+</button>
+
+
+
+
+<button
+
+onClick={()=>setRunning(false)}
+
+>
+
+Pause
+
+</button>
+
+
+
+
+<button
+
+onClick={()=>{
+
+setRunning(false);
+
+setSeconds(duration*60);
+
+}}
+
+>
+
+Reset
+
+</button>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+);
+
+
+}
+
 
 export default FocusPage;

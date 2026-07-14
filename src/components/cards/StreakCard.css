@@ -1,0 +1,58 @@
+.streak-card {
+
+
+margin-top:30px;
+
+padding:25px;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(99,102,241,0.2),
+rgba(34,197,94,0.15)
+);
+
+
+border:1px solid var(--border);
+
+
+}
+
+
+
+.streak-number {
+
+
+font-size:42px;
+
+font-weight:800;
+
+margin:15px 0;
+
+
+}
+
+
+
+.streak-card p {
+
+
+color:var(--text-secondary);
+
+
+}
+
+
+
+.streak-card span {
+
+
+font-size:14px;
+
+color:var(--text-secondary);
+
+
+}

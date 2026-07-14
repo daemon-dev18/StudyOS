@@ -1,0 +1,38 @@
+.stat-card {
+
+
+padding:25px;
+
+border-radius:20px;
+
+background:var(--bg-card);
+
+border:1px solid var(--border);
+
+}
+
+
+
+.stat-card h2 {
+
+font-size:30px;
+
+margin:0;
+
+}
+
+
+
+.stat-card p {
+
+color:var(--text-secondary);
+
+}
+
+
+
+.stat-card strong {
+
+font-size:24px;
+
+}

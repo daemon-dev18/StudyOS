@@ -1,0 +1,97 @@
+.history-page {
+
+
+padding:20px;
+
+
+}
+
+
+
+.history-page h1 {
+
+
+font-size:36px;
+
+
+}
+
+
+
+.history-subtitle {
+
+
+color:var(--text-secondary);
+
+
+}
+
+
+
+.history-list {
+
+
+margin-top:30px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+
+}
+
+
+
+.history-card {
+
+
+padding:25px;
+
+border-radius:20px;
+
+background:var(--bg-card);
+
+border:1px solid var(--border);
+
+
+}
+
+
+
+.history-card h2 {
+
+
+margin-top:0;
+
+
+}
+
+
+
+.history-card p {
+
+
+color:var(--text-secondary);
+
+
+}
+
+
+
+.empty-history {
+
+
+padding:40px;
+
+text-align:center;
+
+background:var(--bg-card);
+
+border-radius:20px;
+
+border:1px solid var(--border);
+
+
+}
